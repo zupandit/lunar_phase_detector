@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moon Project</title>
+    <script src="https://unpkg.com/htmx.org@2.0.2" integrity="sha384-Y7hw+L/jvKeWIRRkqWYfPcvVxHzVzn5REgzbawhxAuQGwX1XWe70vji+VSeHOThJ" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="carousel-overlay" class="carousel-overlay">
+        <div class="carousel">
+            <div>
+                <div class="carousel-slide active" id="slide1">
+                    <h2>Welcome to the Moon Project🌙</h2>
+                    <p>Developed by University of Calgary students to find the day of the lunar month.</p> 
+                    <h3>With just a picture our model will predict the age of the moon!</h3>
+                </div>
+                <div class="carousel-slide" id="slide2">
+                    <h2>Image preperation</h2>
+                    <p>For best results, focus on the moon and lower the exposure.</p>
+                    <img src="{{url_for('static', filename='moonVid.gif')}}" alt="How to lower exposure in iphone"/>
+                </div>
+                <div class="carousel-slide" id="slide3">
+                    <h2>Get Started! 🚀🌕</h2>
+                    <button id="tryButton" class="carousel-button">Try</button>
+                </div>
+            </div>
+            <div>
+                    <a class="carousel-control prev" onclick="prevSlide()">&#10094;</a>
+                    <a class="carousel-control next" onclick="nextSlide()">&#10095;</a>
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlide(0)"></span>
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav>
+        <h1>Moon Project</h1>
+        <div id="left-nav">
+            <a href="#contact">Contact</a>
+            <a href="#info">Info</a>
+        </div>
+    </nav>
+    <main>
+        <div class="upload-box">
+            <img src="{{url_for('static', filename='moon.png')}}" alt="Moon Image" class="moon-image">
+            <form action="/" method="POST" enctype="multipart/form-data" hx-post="/" hx-target="#results" hx-swap="innerHTML" id="form">
+                <input type="file" name="moonImage" id="moonImage" accept="image/jpeg" class="upload-input">
+                <label for="moonImage" class="upload-label">Choose a file</label>
+                <button type="submit" class="upload-button">Upload moon picture</button>
+            </form>
+            <p id="results"></p>            
+        </div>
+    </main>
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+</body>
+</html>

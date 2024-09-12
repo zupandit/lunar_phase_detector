@@ -1,0 +1,228 @@
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background-color: #150931;
+    color: white;
+}
+
+nav {
+    padding: 0 1.5em 0 1.5em;
+    position: relative; /* Necessary to position the pseudo-element correctly */
+    display: flex;
+    justify-content: space-between;
+}
+
+nav>h1{
+    margin: 1rem;
+    font-size: 3em;
+}
+h1>a{
+    text-decoration: none;
+}
+h1:hover{
+    cursor: pointer;
+}
+nav::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px; /* Height of the bottom border */
+    background: radial-gradient(circle, rgba(150,102,175,1) 79%, rgba(180,172,172,1) 100%);
+}
+
+nav>div{
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+nav a {
+    color: white;
+    margin-left: 30px;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+nav a:hover {
+    border-bottom: 2px solid white;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    width: 100%;
+}
+
+.upload-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2e004e;
+    padding: 7em;
+    border: 2px solid #4a007d;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.moon-image {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.upload-input {
+    display: none; /* Hide the default file input */
+}
+
+.upload-label {
+    background-color: #a64cc4;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.upload-label:hover {
+    background-color: #8e3ba7;
+}
+
+.upload-button {
+    background-color: #a64cc4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+.upload-label,
+.upload-button {
+    text-align: center;
+    padding: 10px 20px;
+    display: block;
+}
+
+.upload-button:hover {
+    background-color: #8e3ba7;
+}
+
+.carousel-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.carousel {
+    background: white;
+    color: black;
+    padding: 2em;
+    border-radius: 10px;
+    text-align: center;
+    height: 50%;
+    width: 300px;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.carousel-slide {
+    display: none;
+}
+
+.carousel-slide.active {
+    display: block;
+}
+
+.carousel-button {
+    background-color: #a64cc4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.carousel-button:hover {
+    background-color: #8e3ba7;
+}
+
+.carousel-control {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.carousel-control.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.carousel-control.next {
+    right: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+.carousel-control:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+.carousel-dots {
+    text-align: center;
+    padding: 10px 0;
+    background: #ddd;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.carousel-dots .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.carousel-dots .dot.active {
+    background-color: #717171;
+}
+
+
+#slide3{
+    margin-top: 50%;
+}
+
+@media (max-width: 350px) {
+    nav > h1 {
+        font-size: 2em;
+    }
+}
